@@ -6,47 +6,27 @@ Dadata API wrapper
 ### Install:
 
 ```ruby
-gem install terasms
+gem install dadata
 ```
 or 
 ```ruby
-gem 'terasms'
+gem 'dadata'
 ```
 ### Usage:
 
 ```ruby
-require 'terasms'
+require 'dadata'
 
 Dadata.configure do |config|
-    config.url = "https://auth.terasms.ru/outbox/send/json"
-    config.balance_url = "https://auth.terasms.ru/outbox/balance/json/"
-    config.status_url = "https://auth.terasms.ru/outbox/getstatus/json"
-    config.login = "Your_user_name"
-    config.password = "Passwd"
-    config.sign = "your_token"
-    config.sender = "Sender"
-    config.type = "sms"
+    config.url = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address"
+    config.api_key = "ded9fedccd33a614c9f3bd25fbc8e6c1168addd8"
 end
 
-api = Dadata::Sms.new
-
-puts api.balance # => {"status"=>"success", "result"=>{"status"=>0, "status_description"=>"OK", "balance"=>-36534.651, "pay_type"=>"after"}}
-
-message = api.send({target: "+77501112233", message: "Hello Yarkiy world!"}) 
-
-# =>
-{"status"=>"success",
- "result"=>
-  {"status"=>0,
-   "status_description"=>"OK",
-   "message_infos"=>
-    [{"msisdn"=>"+79500466321", "id"=>"1042924450", "status"=>0, "price"=>0}]},
- "id"=>"1042924450"}
-
-message_id =  message["id"] # => 1042924450
-
-puts "Message status: #{api.status(1042924450)}" #=> {"result"=>"success", "status"=>"12", "status_desc"=>"delivered"}
+api = Dadata::Address.new
+req = api.call('Невский 48')
+puts req.status
+puts req.result["suggestions"]
 
 ```
 ### License
-MIT License. Copyright 2019 Pavel Ishenin / isheninp@gmail.com
+MIT License. Copyright 2020 Pavel Ishenin / isheninp@gmail.com
