@@ -19,7 +19,7 @@ https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address
 require 'rubygems'
 require 'ostruct'
 require 'json'
-require 'dadataru/http_client/base'
+require 'dadata_ru/http_client/base'
   
 module DadataRu
   
