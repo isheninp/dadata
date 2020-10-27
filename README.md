@@ -15,7 +15,7 @@ gem 'dadata_ru'
 ### Usage:
 
 ```ruby
-require 'dadata'
+require 'dadata_ru'
 
 DadataRu.configure do |config|
     config.url = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address"
