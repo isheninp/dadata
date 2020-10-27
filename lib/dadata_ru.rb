@@ -19,9 +19,9 @@ https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address
 require 'rubygems'
 require 'ostruct'
 require 'json'
-require 'dadata/http_client/base'
+require 'dadataru/http_client/base'
   
-module Dadata
+module DadataRu
   
   def self.config
     @config ||= OpenStruct.new
@@ -49,9 +49,9 @@ module Dadata
 
     def call query
       submit(
-        url: Dadata.config.url,
+        url: DadataRu.config.url,
         headers: {
-          "Authorization"=>"Token "+ Dadata.config.api_key.to_s,
+          "Authorization"=>"Token "+ DadataRu.config.api_key.to_s,
           "Accept": "application/json"},
         method: 'POST', 
         type: 'json', 

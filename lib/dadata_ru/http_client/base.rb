@@ -2,7 +2,7 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-module Dadata
+module DadataRu
   class HttpClient
     def submit url:, headers: {}, params: {}, method: 'GET', type: 'json', body: ''
       uri = URI.parse(url)
