@@ -23,7 +23,10 @@ DadataRu.configure do |config|
 end
 
 api = DadataRu::Address.new
-req = api.call('Невский 48')
+req = api.call({
+  query: 'Невский 48',
+  count: 15
+})
 puts req.status
 puts req.result["suggestions"]
 

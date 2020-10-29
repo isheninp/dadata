@@ -47,7 +47,7 @@ module DadataRu
       ERRORS[code]
     end
 
-    def call query
+    def call params
       submit(
         url: DadataRu.config.url,
         headers: {
@@ -55,7 +55,7 @@ module DadataRu
           "Accept": "application/json"},
         method: 'POST', 
         type: 'json', 
-        body: {query: query}.to_json
+        body: params.to_json
       )
     end
 

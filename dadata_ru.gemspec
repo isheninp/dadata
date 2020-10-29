@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
     s.name        = 'dadata_ru'
-    s.version     = '1.0.5'
+    s.version     = '1.0.6'
     s.date        = '2020-10-02'
     s.summary     = "dadata.ru api"
     s.description = "wrapper for dadata.ru api"
